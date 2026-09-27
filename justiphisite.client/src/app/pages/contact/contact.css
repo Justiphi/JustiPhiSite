@@ -1,0 +1,89 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.form {
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6875rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 400;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: #dc2626;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.form .btn {
+  align-self: flex-start;
+}
+
+.note {
+  margin: 0;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--ink);
+}
+
+.side {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.side-title {
+  font-size: 1.125rem;
+}
+
+.side a {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

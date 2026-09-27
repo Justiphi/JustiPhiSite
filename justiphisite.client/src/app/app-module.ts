@@ -1,8 +1,9 @@
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { NgModule, inject, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { Footer } from './components/footer/footer';
 import { Nav } from './components/nav/nav';
 
 @NgModule({
@@ -12,10 +13,12 @@ import { Nav } from './components/nav/nav';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Nav
+    Nav,
+    Footer
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

@@ -1,0 +1,73 @@
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Services</span>
+    <h1>Services</h1>
+    <p class="lead">
+      3D printing, IT support and software development for individuals and small businesses.
+      Every job starts with a clear quote.
+    </p>
+  </div>
+</header>
+
+@if (categories(); as list) {
+  @for (category of list; track category.serviceCategoryID; let odd = $odd) {
+    <section class="section" [class.section-alt]="odd" [id]="slug(category.name)">
+      <div class="container">
+        <h2>{{ category.name }}</h2>
+
+        <div class="grid">
+          @for (service of category.services; track service.serviceID) {
+            <article class="card">
+              <h3>{{ service.name }}</h3>
+              <div class="rich-text muted" [innerHTML]="service.description"></div>
+              <div class="card-footer">
+                <span class="price">
+                  @if (service.price > 0) {
+                    From {{ service.price.toFixed(2) }}
+                  } @else {
+                    Quote on request
+                  }
+                </span>
+                <a class="enquire" routerLink="/contact" [queryParams]="{ service: service.name }">
+                  Enquire <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+} @else if (failed()) {
+  <section class="section">
+    <div class="container">
+      <div class="card notice">
+        <h2>Services couldn't be loaded</h2>
+        <p class="muted">
+          Please try again in a moment, or <a routerLink="/contact">get in touch</a> and tell me what
+          you need.
+        </p>
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="section" aria-busy="true">
+    <div class="container grid">
+      @for (placeholder of [1, 2, 3]; track placeholder) {
+        <div class="card skeleton"></div>
+      }
+    </div>
+  </section>
+}
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>Not sure which service you need?</h2>
+        <p>Describe the problem or project and I'll point you in the right direction.</p>
+      </div>
+      <a class="btn btn-primary" routerLink="/contact">Ask a question</a>
+    </div>
+  </div>
+</section>

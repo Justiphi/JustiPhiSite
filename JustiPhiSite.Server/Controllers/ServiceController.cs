@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using JustiPhiSite.Server.Database.Models;
+using Microsoft.EntityFrameworkCore;
 using JustiPhiSite.Server.Database;
 
 namespace JustiPhiSite.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ServiceController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -15,24 +15,37 @@ namespace JustiPhiSite.Server.Controllers
             _context = context;
         }
 
-        [HttpGet(Name = "GetService")]
-        public IEnumerable<Service> GetServices()
+        [HttpGet(Name = "GetServices")]
+        public async Task<IActionResult> GetServices()
         {
-            List<Service> services = new List<Service>();
+            var services = await _context.Services
+                .OrderBy(x => x.ServiceCategoryID)
+                .ThenBy(x => x.ServiceID)
+                .Select(x => new ServiceDto(x.ServiceID, x.Name, x.Description, x.Price, x.ServiceCategoryID))
+                .ToListAsync();
 
-            services = _context.Services.OrderByDescending(x => x.Name).ToList();
-
-            return services;
+            return Ok(services);
         }
 
-        [HttpGet(Name = "GetServiceCategories")]
-        public IEnumerable<ServiceCategory> GetCategories()
+        [HttpGet("categories", Name = "GetServiceCategories")]
+        public async Task<IActionResult> GetCategories()
         {
-            List<ServiceCategory> serviceCategories = new List<ServiceCategory>();
+            var serviceCategories = await _context.ServiceCategories
+                .OrderBy(x => x.ServiceCategoryID)
+                .Select(x => new ServiceCategoryDto(
+                    x.ServiceCategoryID,
+                    x.Name,
+                    x.Services
+                        .OrderBy(s => s.ServiceID)
+                        .Select(s => new ServiceDto(s.ServiceID, s.Name, s.Description, s.Price, s.ServiceCategoryID))
+                        .ToList()))
+                .ToListAsync();
 
-            serviceCategories = _context.ServiceCategories.OrderByDescending(x => x.Name).ToList();
-
-            return serviceCategories;
+            return Ok(serviceCategories);
         }
+
+        public record ServiceDto(int ServiceID, string Name, string? Description, decimal Price, int ServiceCategoryID);
+
+        public record ServiceCategoryDto(int ServiceCategoryID, string Name, List<ServiceDto> Services);
     }
 }

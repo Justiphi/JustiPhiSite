@@ -1,3 +1,93 @@
-<h1>Contact</h1>
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>Get in touch</h1>
+    <p class="lead">
+      Tell me a little about what you need and I'll get back to you with a clear, no-obligation quote.
+    </p>
+  </div>
+</header>
 
-<p>Placeholder page. Content to come.</p>
+<section class="section">
+  <div class="container contact-grid">
+    <form class="card form" #form="ngForm" (ngSubmit)="submit(form)" novalidate>
+      <div class="row">
+        <label class="field">
+          <span>Name</span>
+          <input name="name" [(ngModel)]="model.name" #name="ngModel" required autocomplete="name" />
+          @if (name.invalid && name.touched) {
+            <small class="error">Please enter your name.</small>
+          }
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" required email autocomplete="email" />
+          @if (email.invalid && email.touched) {
+            <small class="error">Please enter a valid email address.</small>
+          }
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Service</span>
+        <select name="service" [(ngModel)]="model.service">
+          <option value="">Not sure / general enquiry</option>
+          @for (group of groups(); track group.name) {
+            <optgroup [label]="group.name">
+              @for (service of group.services; track service) {
+                <option [value]="service">{{ service }}</option>
+              }
+            </optgroup>
+          }
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Message</span>
+        <textarea
+          name="message"
+          rows="6"
+          [(ngModel)]="model.message"
+          #message="ngModel"
+          required
+          placeholder="What do you need help with? Include sizes, materials, deadlines or any other details."></textarea>
+        @if (message.invalid && message.touched) {
+          <small class="error">Please add a short message.</small>
+        }
+      </label>
+
+      <button type="submit" class="btn btn-primary">Send enquiry</button>
+
+      @if (opened()) {
+        <p class="note" role="status">
+          Your email app should now open with your message ready to send. If it doesn't, email me directly at
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a>.
+        </p>
+      }
+    </form>
+
+    <aside class="side">
+      <div class="card">
+        <h2 class="side-title">Email</h2>
+        <p><a [href]="'mailto:' + site.email">{{ site.email }}</a></p>
+        <p class="muted">Every enquiry gets a personal reply, usually with a quote or a few follow-up questions.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="side-title">Location</h2>
+        <p>{{ site.location }}</p>
+        <p class="muted">Serving Tauranga and the wider Bay of Plenty.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="side-title">Getting a 3D print quote?</h2>
+        <ul class="checklist">
+          <li>Attach your STL or 3MF file, or a link to the design</li>
+          <li>Mention FDM or resin, if you have a preference</li>
+          <li>Let me know the colour, quantity and any deadline</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>

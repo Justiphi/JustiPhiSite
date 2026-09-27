@@ -1,3 +1,76 @@
-<h1>About</h1>
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">About</span>
+    <h1>About JustiPhi Technologies</h1>
+    <p class="lead">
+      A Tauranga-based freelance technology business helping people and small businesses make, fix and
+      build things.
+    </p>
+  </div>
+</header>
 
-<p>Placeholder page. Content to come.</p>
+<section class="section">
+  <div class="container about-grid">
+    <div class="prose">
+      <h2>Hands-on help across hardware and software</h2>
+      <p>
+        JustiPhi Technologies brings together three things I enjoy doing: 3D printing, fixing
+        computers, and writing software. Instead of juggling separate specialists, you get one person
+        who can design and print a replacement part, sort out a slow desktop PC, or build the tool your
+        business has been missing.
+      </p>
+      <p>
+        Based in Tauranga, I work with individuals, hobbyists and small businesses around the Bay of
+        Plenty, and I keep things simple. You'll
+        get a straight answer about what's possible, a clear quote before any work starts, and regular
+        updates until the job is done.
+      </p>
+      <p>
+        With both FDM and resin printers available, I can match the process to the part, whether it's
+        strong enough to use every day or detailed enough to put on display.
+      </p>
+    </div>
+
+    <aside class="card">
+      <h2 class="aside-title">At a glance</h2>
+      <ul class="checklist">
+        <li>FDM and resin 3D printing</li>
+        <li>3D modelling and prototyping</li>
+        <li>Desktop PC repair and IT support</li>
+        <li>Websites, custom software and databases</li>
+        <li>Based in Tauranga, New Zealand</li>
+      </ul>
+      <a class="btn btn-primary" routerLink="/services">See all services</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How I work</span>
+      <h2>What you can expect</h2>
+    </div>
+
+    <div class="grid">
+      @for (value of values; track value.title) {
+        <article class="card">
+          <h3>{{ value.title }}</h3>
+          <p class="muted">{{ value.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>Let's work together</h2>
+        <p>Get in touch to talk through your project or request a quote.</p>
+      </div>
+      <a class="btn btn-primary" routerLink="/contact">Contact me</a>
+    </div>
+  </div>
+</section>

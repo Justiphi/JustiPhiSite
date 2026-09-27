@@ -1,0 +1,27 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.prose {
+  max-width: 42rem;
+  color: var(--ink-muted);
+  font-size: 1.0625rem;
+}
+
+.prose h2 {
+  color: var(--ink);
+}
+
+.aside-title {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

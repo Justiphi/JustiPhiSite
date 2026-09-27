@@ -1,34 +1,131 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Freelance technology services in Tauranga</span>
+      <h1>Practical tech help, from 3D prints to custom software.</h1>
+      <p class="lead">
+        JustiPhi Technologies is based in Tauranga and offers FDM and resin 3D printing, IT support and
+        software development for individuals and small businesses, with clear quotes and friendly service.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" routerLink="/contact">Request a quote</a>
+        <a class="btn btn-secondary" routerLink="/services">View services</a>
+      </div>
+    </div>
 
-<p>This component demonstrates fetching data from the server.</p>
+    <aside class="card" aria-label="Highlights">
+      <h2 class="hero-card-title">Why work with me</h2>
+      <ul class="checklist">
+        <li>FDM and high-detail resin 3D printing</li>
+        <li>Straightforward, jargon-free IT support</li>
+        <li>Websites and software built to fit your needs</li>
+        <li>A clear quote before any work starts</li>
+        <li>Local to Tauranga and the Bay of Plenty</li>
+      </ul>
+    </aside>
+  </div>
+</section>
 
-@if (forecasts(); as rows) {
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (forecast of rows; track forecast.date) {
-    <tr>
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-    </tr>
-    }
-  </tbody>
-</table>
-} @else {
-<p>
-  <em>
-    Loading... Please refresh once the ASP.NET backend has started. See
-    <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a>
-    for more details.
-  </em>
-</p>
-}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>What I can help with</h2>
+      <p class="lead">Three areas of expertise, one point of contact.</p>
+    </div>
+
+    <div class="grid">
+      @for (offering of offerings; track offering.fragment) {
+        <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            @switch (offering.fragment) {
+              @case ('3d-printing') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>
+              }
+              @case ('it-support') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              }
+              @default {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>
+              }
+            }
+          </div>
+          <h3>{{ offering.title }}</h3>
+          <p class="muted">{{ offering.summary }}</p>
+          <ul class="checklist">
+            @for (item of offering.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+          <a class="card-link" routerLink="/services" [fragment]="offering.fragment">
+            Explore {{ offering.title }} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container feature">
+    <div>
+      <span class="eyebrow">Now available</span>
+      <h2>High-detail resin 3D printing</h2>
+      <p class="lead">
+        When FDM can't capture the detail you need, resin printing delivers crisp features and a
+        smooth surface finish that's ready to paint or use.
+      </p>
+      <ul class="checklist">
+        <li>Miniatures, figurines and tabletop models</li>
+        <li>Display pieces and scale models</li>
+        <li>Small precision parts and detailed prototypes</li>
+        <li>Washed, cured and cleaned up before delivery</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-primary" routerLink="/contact" [queryParams]="{ service: 'Resin Printing' }">Get a resin print quote</a>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="card">
+        <h3>FDM printing</h3>
+        <p class="muted">Best for strong, functional parts, larger prints and a wide choice of materials.</p>
+      </div>
+      <div class="card compare-accent">
+        <h3>Resin printing</h3>
+        <p class="muted">Best for fine detail, small parts and a smooth finish with barely visible layer lines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Simple from start to finish</h2>
+    </div>
+
+    <ol class="steps">
+      @for (step of steps; track step.title; let i = $index) {
+        <li class="card">
+          <span class="step-number" aria-hidden="true">{{ i + 1 }}</span>
+          <h3>{{ step.title }}</h3>
+          <p class="muted">{{ step.text }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me about it and I'll get back to you with a clear, no-obligation quote.</p>
+      </div>
+      <a class="btn btn-primary" routerLink="/contact">Get in touch</a>
+    </div>
+  </div>
+</section>

@@ -1,46 +1,32 @@
-import { provideHttpClient } from '@angular/common/http';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Home } from './home';
 
 describe('Home', () => {
-  let component: Home;
   let fixture: ComponentFixture<Home>;
-  let httpMock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+      providers: [provideRouter([])]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(Home);
-    component = fixture.componentInstance;
-    httpMock = TestBed.inject(HttpTestingController);
-  });
-
-  afterEach(() => {
-    httpMock.verify();
+    fixture.detectChanges();
   });
 
   it('should create the home page', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should retrieve weather forecasts from the server', () => {
-    const mockForecasts = [
-      { date: '2021-10-01', temperatureC: 20, temperatureF: 68, summary: 'Mild' },
-      { date: '2021-10-02', temperatureC: 25, temperatureF: 77, summary: 'Warm' }
-    ];
+  it('should list each service area', () => {
+    const titles = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('article h3'))
+      .map((el) => el.textContent?.trim());
 
-    component.ngOnInit();
+    expect(titles).toEqual(['3D Printing', 'IT Support', 'Software Development']);
+  });
 
-    const req = httpMock.expectOne('/weatherforecast');
-    expect(req.request.method).toEqual('GET');
-    req.flush(mockForecasts);
-
-    expect(component.forecasts()).toEqual(mockForecasts);
+  it('should promote resin printing', () => {
+    expect(fixture.nativeElement.textContent).toContain('High-detail resin 3D printing');
   });
 });

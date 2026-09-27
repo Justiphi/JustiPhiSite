@@ -1,0 +1,30 @@
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" routerLink="/">{{ site.name }}</a>
+      <p class="muted">{{ site.tagline }}.</p>
+      <p class="muted">Based in {{ site.location }}.</p>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2 class="footer-heading">Explore</h2>
+      <ul>
+        <li><a routerLink="/services">Services</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="footer-heading">Get in touch</h2>
+      <ul>
+        <li><a [href]="'mailto:' + site.email">{{ site.email }}</a></li>
+        <li><a routerLink="/contact">Request a quote</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container legal">
+    &copy; {{ year }} {{ site.name }}. All rights reserved.
+  </div>
+</footer>

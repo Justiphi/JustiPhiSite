@@ -1,9 +1,12 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
+/* Pull the page up behind the floating nav so each page's top background shows around it.
+   The first section on every page adds --nav-offset back to its top padding. */
 .content {
-  padding: 2rem;
-  text-align: center;
+  flex: 1;
+  margin-top: calc(-1 * var(--nav-offset));
 }
