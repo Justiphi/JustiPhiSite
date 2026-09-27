@@ -1,0 +1,6 @@
+@JustiPhiSite.Server_HostAddress = http://localhost:5287
+
+GET {{JustiPhiSite.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

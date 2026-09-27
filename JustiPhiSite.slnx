@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="justiphisite.client/justiphisite.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="JustiPhiSite.Server/JustiPhiSite.Server.csproj" />
+</Solution>

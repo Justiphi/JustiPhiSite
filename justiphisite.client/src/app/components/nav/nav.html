@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <a class="brand" routerLink="/" (click)="closeMenu()">JustiPhi Technologies</a>
+
+  <button
+    type="button"
+    class="toggle"
+    [class.open]="menuOpen()"
+    aria-controls="nav-links"
+    aria-label="Toggle navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <div class="links-wrap" [class.open]="menuOpen()">
+    <ul id="nav-links" class="links">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            (click)="closeMenu()">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>
