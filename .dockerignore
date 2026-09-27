@@ -3,6 +3,7 @@
 **/.env
 **/.git
 **/.gitignore
+**/appsettings.Development.json
 **/.project
 **/.settings
 **/.toolstarget
