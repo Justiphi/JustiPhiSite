@@ -11,8 +11,8 @@ EXPOSE 8081
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS with-node
 RUN apt-get update
-RUN apt-get install curl
-RUN curl -sL https://deb.nodesource.com/setup_20.x | bash
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash
 RUN apt-get -y install nodejs
 RUN npm install -g @angular/cli
 
@@ -31,8 +31,15 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./JustiPhiSite.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+# Build an EF Core migrations bundle (a standalone executable that applies pending migrations)
+RUN dotnet tool install --global dotnet-ef --version 10.0.12
+ENV PATH="$PATH:/root/.dotnet/tools"
+RUN dotnet ef migrations bundle --configuration $BUILD_CONFIGURATION -o /app/efbundle --force
+
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "JustiPhiSite.Server.dll"]
+COPY --from=publish /app/efbundle .
+# Apply any pending migrations, then start the app. Uses ConnectionStrings__DefaultConnection from the environment.
+ENTRYPOINT ["/bin/sh", "-c", "./efbundle --connection \"$ConnectionStrings__DefaultConnection\" && exec dotnet JustiPhiSite.Server.dll"]
