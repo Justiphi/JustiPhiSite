@@ -76,7 +76,7 @@
           "defaultConfiguration": "development",
           "options": {
             "proxyConfig": "src/proxy.conf.js",
-            "port": 52718
+            "port": 52123
           }
         },
         "test": {

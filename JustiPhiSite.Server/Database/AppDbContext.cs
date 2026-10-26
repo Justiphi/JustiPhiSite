@@ -18,7 +18,8 @@ namespace JustiPhiSite.Server.Database
             modelBuilder.Entity<ServiceCategory>().HasData(
                     new ServiceCategory() { ServiceCategoryID = 1, Name = "3D Printing" },
                     new ServiceCategory() { ServiceCategoryID = 2, Name = "IT Support" },
-                    new ServiceCategory() { ServiceCategoryID = 3, Name = "Software Development" }
+                    new ServiceCategory() { ServiceCategoryID = 3, Name = "Software Development" },
+                    new ServiceCategory() { ServiceCategoryID = 4, Name = "Software Solutions" }
                 );
 
             modelBuilder.Entity<Service>().HasData(
@@ -33,7 +34,8 @@ namespace JustiPhiSite.Server.Database
                     new Service() { ServiceID = 9, Name = "Web Development", Description="<p>Design and development of modern, <strong>responsive</strong> websites and web applications, from simple business sites to full applications with databases and user accounts.</p>", ServiceCategoryID=3 },
                     new Service() { ServiceID = 10, Name = "Custom Software", Description="<p>Bespoke software built around your needs, such as:</p><ul><li>Desktop tools</li><li>Automation scripts</li><li>Integrations between systems</li></ul><p>Save time by removing repetitive manual work.</p>", ServiceCategoryID=3 },
                     new Service() { ServiceID = 11, Name = "Database Design", Description="<p>Design, setup and optimisation of databases.</p><p>I can move your data <strong>out of spreadsheets</strong> into a properly structured database that is easier to search, report on and maintain.</p>", ServiceCategoryID=3 },
-                    new Service() { ServiceID = 12, Name = "Resin Printing", Description="<p>High-detail <strong>resin (MSLA)</strong> printing for parts where fine detail and a smooth surface finish matter, such as:</p><ul><li>Miniatures, figurines and tabletop models</li><li>Display pieces and scale models</li><li>Small precision parts and detailed prototypes</li><li>Jewellery and craft masters</li></ul><p>Every print is <strong>washed, UV-cured and has its supports removed and cleaned up</strong>, so it arrives ready to paint or use.</p>", ServiceCategoryID=1 }
+                    new Service() { ServiceID = 12, Name = "Resin Printing", Description="<p>High-detail <strong>resin (MSLA)</strong> printing for parts where fine detail and a smooth surface finish matter, such as:</p><ul><li>Miniatures, figurines and tabletop models</li><li>Display pieces and scale models</li><li>Small precision parts and detailed prototypes</li><li>Jewellery and craft masters</li></ul><p>Every print is <strong>washed, UV-cured and has its supports removed and cleaned up</strong>, so it arrives ready to paint or use.</p>", ServiceCategoryID=1 },
+                    new Service() { ServiceID = 13, Name = "Layer Zero", Description= "<p>Now in <strong>Open Beta</strong> Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenace and be notified when it is due</li></ul>", ServiceCategoryID=4 }
                 );
         }
     }

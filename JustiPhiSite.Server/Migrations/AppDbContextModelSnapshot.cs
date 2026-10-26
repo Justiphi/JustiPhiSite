@@ -147,6 +147,14 @@ namespace JustiPhiSite.Server.Migrations
                             Name = "Resin Printing",
                             Price = 0m,
                             ServiceCategoryID = 1
+                        },
+                        new
+                        {
+                            ServiceID = 13,
+                            Description = "<p>Now in <strong>Open Beta</strong> Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenace and be notified when it is due</li></ul>",
+                            Name = "Layer Zero",
+                            Price = 0m,
+                            ServiceCategoryID = 4
                         });
                 });
 
@@ -181,6 +189,11 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceCategoryID = 3,
                             Name = "Software Development"
+                        },
+                        new
+                        {
+                            ServiceCategoryID = 4,
+                            Name = "Software Solutions"
                         });
                 });
 

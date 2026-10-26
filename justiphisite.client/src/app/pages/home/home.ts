@@ -34,6 +34,12 @@ export class Home {
       summary: 'Websites and custom tools that save you time and fit the way you actually work.',
       items: ['Websites and web apps', 'Custom software and automation', 'Database design'],
     },
+    {
+      title: 'Software Solutions',
+      fragment: 'software-solutions',
+      summary: 'Software solutions that solve real problems.',
+      items: ['Layer Zero'],
+    },
   ];
 
   protected readonly steps = [
