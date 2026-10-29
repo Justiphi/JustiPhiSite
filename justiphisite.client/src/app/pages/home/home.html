@@ -1,27 +1,30 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Freelance technology services in Tauranga</span>
-      <h1>Practical tech help, from 3D prints to custom software.</h1>
+      <span class="eyebrow">Now in closed beta</span>
+      <h1>Layer Zero: maintenance tracking for your 3D printers.</h1>
       <p class="lead">
-        JustiPhi Technologies is based in Tauranga and offers FDM and resin 3D printing, IT support and
-        software development for individuals and small businesses, with clear quotes and friendly service.
+        Layer Zero is a software solution from JustiPhi Technologies that keeps your print farm running.
+        Schedule maintenance, log repairs and track spare parts across every printer you own.
       </p>
       <div class="actions">
-        <a class="btn btn-primary" routerLink="/contact">Request a quote</a>
-        <a class="btn btn-secondary" routerLink="/services">View services</a>
+        <a class="btn btn-primary" routerLink="/contact" [queryParams]="{ service: 'Layer Zero' }">Request beta access</a>
+        <a class="btn btn-secondary" routerLink="/services" fragment="software-solutions">Learn more</a>
       </div>
+      <p class="availability" role="note">
+        <span><strong>Availability:</strong> {{ site.availability }}</span>
+      </p>
     </div>
 
-    <aside class="card" aria-label="Highlights">
-      <h2 class="hero-card-title">Why work with me</h2>
+    <aside class="card" aria-label="Layer Zero features">
+      <h2 class="hero-card-title">What Layer Zero does</h2>
       <ul class="checklist">
-        <li>FDM and high-detail resin 3D printing</li>
-        <li>Straightforward, jargon-free IT support</li>
-        <li>Websites and software built to fit your needs</li>
-        <li>A clear quote before any work starts</li>
-        <li>Local to Tauranga and the Bay of Plenty</li>
+        <li>List and organise printers by type and location</li>
+        <li>Track printer repairs and maintenance</li>
+        <li>Track spare part inventory</li>
+        <li>Get notified when maintenance is due</li>
       </ul>
+      <p class="muted">Request access by sending a few details about your printer setup.</p>
     </aside>
   </div>
 </section>
@@ -31,7 +34,7 @@
     <div class="section-head">
       <span class="eyebrow">Services</span>
       <h2>What I can help with</h2>
-      <p class="lead">Three areas of expertise, one point of contact.</p>
+      <p class="lead">Software and hands-on services, all built around 3D printers.</p>
     </div>
 
     <div class="grid">
@@ -41,9 +44,6 @@
             @switch (offering.fragment) {
               @case ('3d-printing') {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>
-              }
-              @case ('it-support') {
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
               }
               @default {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>
@@ -67,28 +67,6 @@
 </section>
 
 <section class="section section-alt">
-  <div class="container feature">
-    <div>
-      <span class="eyebrow">Now in closed Beta</span>
-      <h2>Layer Zero</h2>
-      <p class="lead">
-        Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking!<br />
-        Request to join the closed beta by sending details on your printer setup.
-      </p>
-      <ul class="checklist">
-        <li>List and organise printers by type and location</li>
-        <li>Track printer repairs and maintenance</li>
-        <li>Track spare part inventory</li>
-        <li>Track maintenace and be notified when it is due</li>
-      </ul>
-      <div class="actions">
-        <a class="btn btn-primary" routerLink="/contact" [queryParams]="{ service: 'Layer Zero' }">Request Access</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
@@ -107,14 +85,14 @@
   </div>
 </section>
 
-<section class="section cta-section">
+<section class="section">
   <div class="container">
     <div class="cta-banner">
       <div>
-        <h2>Have a project in mind?</h2>
-        <p>Tell me about it and I'll get back to you with a clear, no-obligation quote.</p>
+        <h2>Want to try Layer Zero?</h2>
+        <p>Tell me about your printers and I'll get you set up with beta access.</p>
       </div>
-      <a class="btn btn-primary" routerLink="/contact">Get in touch</a>
+      <a class="btn btn-primary" routerLink="/contact" [queryParams]="{ service: 'Layer Zero' }">Get in touch</a>
     </div>
   </div>
 </section>

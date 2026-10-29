@@ -33,6 +33,9 @@ namespace JustiPhiSite.Server.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -56,6 +59,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 1,
                             Description = "<p>Full maintenance and repair of <strong>FDM and resin</strong> 3D printers, including:</p><ul><li>Diagnosing print quality issues</li><li>Replacing worn or broken parts such as nozzles, belts, hotends and build plates</li><li>Bed levelling and extrusion calibration</li><li>Firmware updates</li></ul><p>I can also provide hands-on training so you know how to use and look after your printer properly.</p>",
+                            IsActive = true,
                             Name = "Printer Maintenance",
                             Price = 0m,
                             ServiceCategoryID = 1
@@ -64,6 +68,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 2,
                             Description = "<p>Strong, functional <strong>FDM</strong> parts printed to order from your own files or from designs found online, in a wide range of colours and materials:</p><ul><li>PLA</li><li>PETG</li><li>ABS</li><li>TPU (flexible)</li></ul><p>I'll advise on the best material, infill and orientation for strength and finish. <strong>Multi-colour printing is available at an additional cost.</strong></p>",
+                            IsActive = true,
                             Name = "FDM Printing",
                             Price = 0m,
                             ServiceCategoryID = 1
@@ -72,6 +77,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 3,
                             Description = "<p>Custom 3D models designed from:</p><ul><li>Sketches or drawings</li><li>Measurements</li><li>Photos</li><li>An existing part that needs replacing</li></ul><p>Models are designed with printing in mind and can be supplied as <strong>print-ready files</strong> or printed for you.</p>",
+                            IsActive = true,
                             Name = "3D Modelling",
                             Price = 0m,
                             ServiceCategoryID = 1
@@ -80,6 +86,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 4,
                             Description = "<p>Rapid prototyping for inventors and small businesses.</p><p>I can take an idea through several design and print iterations <strong>quickly and affordably</strong>, so you can test fit, form and function before committing to manufacturing.</p>",
+                            IsActive = true,
                             Name = "Prototyping",
                             Price = 0m,
                             ServiceCategoryID = 1
@@ -88,6 +95,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 5,
                             Description = "<p>Diagnosis and repair of <strong>desktop PCs</strong>, including:</p><ul><li>Hardware replacement</li><li>Upgrades such as extra RAM or a faster SSD</li><li>Fixing slow or unstable systems</li></ul>",
+                            IsActive = false,
                             Name = "Desktop PC Repair",
                             Price = 0m,
                             ServiceCategoryID = 2
@@ -96,6 +104,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 6,
                             Description = "<p>Removal of viruses, malware and unwanted software.</p><p>Every clean-up is followed by a <strong>security check-up</strong> and the setup of protection to help keep your computer safe in future.</p>",
+                            IsActive = false,
                             Name = "Virus Removal",
                             Price = 0m,
                             ServiceCategoryID = 2
@@ -104,6 +113,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 7,
                             Description = "<p>Setup and troubleshooting of home and small office networks, including:</p><ul><li>Routers</li><li>Wi-Fi coverage</li><li>Printers</li><li>Shared storage</li></ul><p>So all your devices connect <strong>reliably and securely</strong>.</p>",
+                            IsActive = false,
                             Name = "Network Setup",
                             Price = 0m,
                             ServiceCategoryID = 2
@@ -112,6 +122,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 8,
                             Description = "<p>Recovery of lost or deleted files from:</p><ul><li>Failing hard drives and SSDs</li><li>USB sticks</li><li>Memory cards</li></ul><p>Plus help <strong>setting up backups</strong> so it doesn't happen again.</p>",
+                            IsActive = false,
                             Name = "Data Recovery",
                             Price = 0m,
                             ServiceCategoryID = 2
@@ -120,6 +131,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 9,
                             Description = "<p>Design and development of modern, <strong>responsive</strong> websites and web applications, from simple business sites to full applications with databases and user accounts.</p>",
+                            IsActive = false,
                             Name = "Web Development",
                             Price = 0m,
                             ServiceCategoryID = 3
@@ -128,6 +140,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 10,
                             Description = "<p>Bespoke software built around your needs, such as:</p><ul><li>Desktop tools</li><li>Automation scripts</li><li>Integrations between systems</li></ul><p>Save time by removing repetitive manual work.</p>",
+                            IsActive = false,
                             Name = "Custom Software",
                             Price = 0m,
                             ServiceCategoryID = 3
@@ -136,6 +149,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 11,
                             Description = "<p>Design, setup and optimisation of databases.</p><p>I can move your data <strong>out of spreadsheets</strong> into a properly structured database that is easier to search, report on and maintain.</p>",
+                            IsActive = false,
                             Name = "Database Design",
                             Price = 0m,
                             ServiceCategoryID = 3
@@ -144,6 +158,7 @@ namespace JustiPhiSite.Server.Migrations
                         {
                             ServiceID = 12,
                             Description = "<p>High-detail <strong>resin (MSLA)</strong> printing for parts where fine detail and a smooth surface finish matter, such as:</p><ul><li>Miniatures, figurines and tabletop models</li><li>Display pieces and scale models</li><li>Small precision parts and detailed prototypes</li><li>Jewellery and craft masters</li></ul><p>Every print is <strong>washed, UV-cured and has its supports removed and cleaned up</strong>, so it arrives ready to paint or use.</p>",
+                            IsActive = true,
                             Name = "Resin Printing",
                             Price = 0m,
                             ServiceCategoryID = 1
@@ -151,7 +166,8 @@ namespace JustiPhiSite.Server.Migrations
                         new
                         {
                             ServiceID = 13,
-                            Description = "<p>Now in <strong>Open Beta</strong> Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenace and be notified when it is due</li></ul>",
+                            Description = "<p>Now in <strong>Open Beta</strong>. Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenance and be notified when it is due</li></ul>",
+                            IsActive = true,
                             Name = "Layer Zero",
                             Price = 0m,
                             ServiceCategoryID = 4

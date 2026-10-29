@@ -20,6 +20,9 @@ namespace JustiPhiSite.Server.Database.Models
         [Precision(18, 2)]
         public decimal Price { get; set; }
 
+        /// <summary>Inactive services are hidden from the site without deleting them.</summary>
+        public bool IsActive { get; set; } = true;
+
         [Required]
         [ForeignKey(nameof(ServiceCategory.ServiceCategoryID))]
         public int ServiceCategoryID { get; set; }

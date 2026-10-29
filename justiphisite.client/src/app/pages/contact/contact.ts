@@ -12,8 +12,6 @@ interface ServiceGroup {
 // Used when the service list can't be loaded from the server.
 const fallbackGroups: ServiceGroup[] = [
   { name: '3D Printing', services: ['FDM Printing', 'Resin Printing', '3D Modelling', 'Prototyping', 'Printer Maintenance'] },
-  { name: 'IT Support', services: ['Desktop PC Repair', 'Virus Removal', 'Network Setup', 'Data Recovery'] },
-  { name: 'Software Development', services: ['Web Development', 'Custom Software', 'Database Design'] },
   { name: 'Software Solutions', services: ['Layer Zero'] },
 ];
 

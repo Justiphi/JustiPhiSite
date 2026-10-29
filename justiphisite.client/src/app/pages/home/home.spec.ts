@@ -23,10 +23,14 @@ describe('Home', () => {
     const titles = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('article h3'))
       .map((el) => el.textContent?.trim());
 
-    expect(titles).toEqual(['3D Printing', 'IT Support', 'Software Development']);
+    expect(titles).toEqual(['Software Solutions', '3D Printing']);
   });
 
-  it('should promote resin printing', () => {
-    expect(fixture.nativeElement.textContent).toContain('High-detail resin 3D printing');
+  it('should promote Layer Zero', () => {
+    expect(fixture.nativeElement.querySelector('h1').textContent).toContain('Layer Zero');
+  });
+
+  it('should show the availability disclaimer', () => {
+    expect(fixture.nativeElement.textContent).toContain('outside standard business hours');
   });
 });

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { siteConfig } from '../../site-config';
 
 interface Offering {
   title: string;
@@ -15,30 +16,21 @@ interface Offering {
   styleUrl: './home.css',
 })
 export class Home {
+  protected readonly site = siteConfig;
+
+  // IT Support and Software Development are temporarily hidden while the site focuses on 3D printing.
   protected readonly offerings: Offering[] = [
+    {
+      title: 'Software Solutions',
+      fragment: 'software-solutions',
+      summary: 'Software that solves real problems for people running 3D printers.',
+      items: ['Layer Zero printer maintenance tracking', 'Maintenance schedules and reminders', 'Spare part inventory'],
+    },
     {
       title: '3D Printing',
       fragment: '3d-printing',
       summary: 'From tough functional parts to finely detailed resin models, designed and printed to order.',
       items: ['FDM and resin printing', '3D modelling and prototyping', 'Printer maintenance and repair'],
-    },
-    {
-      title: 'IT Support',
-      fragment: 'it-support',
-      summary: 'Friendly, jargon-free help keeping your computers and network running smoothly.',
-      items: ['Desktop PC repair and upgrades', 'Virus and malware removal', 'Networking and data recovery'],
-    },
-    {
-      title: 'Software Development',
-      fragment: 'software-development',
-      summary: 'Websites and custom tools that save you time and fit the way you actually work.',
-      items: ['Websites and web apps', 'Custom software and automation', 'Database design'],
-    },
-    {
-      title: 'Software Solutions',
-      fragment: 'software-solutions',
-      summary: 'Software solutions that solve real problems.',
-      items: ['Layer Zero'],
     },
   ];
 

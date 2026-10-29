@@ -254,6 +254,27 @@ textarea:focus-visible {
   color: #cbd5e1;
 }
 
+/* Availability disclaimer shown across the site */
+
+.availability {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  max-width: 42rem;
+  margin: 1.25rem 0 0;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+}
+
+.availability strong {
+  color: var(--ink);
+}
+
 /* Rich text coming from service descriptions */
 
 .rich-text ul {

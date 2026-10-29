@@ -19,6 +19,7 @@ namespace JustiPhiSite.Server.Controllers
         public async Task<IActionResult> GetServices()
         {
             var services = await _context.Services
+                .Where(x => x.IsActive)
                 .OrderBy(x => x.ServiceCategoryID)
                 .ThenBy(x => x.ServiceID)
                 .Select(x => new ServiceDto(x.ServiceID, x.Name, x.Description, x.Price, x.ServiceCategoryID))
@@ -31,11 +32,13 @@ namespace JustiPhiSite.Server.Controllers
         public async Task<IActionResult> GetCategories()
         {
             var serviceCategories = await _context.ServiceCategories
+                .Where(x => x.Services.Any(s => s.IsActive))
                 .OrderBy(x => x.ServiceCategoryID)
                 .Select(x => new ServiceCategoryDto(
                     x.ServiceCategoryID,
                     x.Name,
                     x.Services
+                        .Where(s => s.IsActive)
                         .OrderBy(s => s.ServiceID)
                         .Select(s => new ServiceDto(s.ServiceID, s.Name, s.Description, s.Price, s.ServiceCategoryID))
                         .ToList()))

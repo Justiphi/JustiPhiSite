@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ServiceApi, ServiceCategory, categorySlug } from '../../data/service-api';
+import { siteConfig } from '../../site-config';
 
 @Component({
   selector: 'app-services',
@@ -15,6 +16,7 @@ export class Services implements OnInit {
   protected readonly categories = signal<ServiceCategory[] | null>(null);
   protected readonly failed = signal(false);
   protected readonly slug = categorySlug;
+  protected readonly site = siteConfig;
 
   ngOnInit() {
     this.api.getCategories().subscribe({

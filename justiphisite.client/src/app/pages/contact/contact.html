@@ -4,6 +4,9 @@
     <p class="lead">
       Tell me a little about what you need and I'll get back to you with a clear, no-obligation quote.
     </p>
+    <p class="availability" role="note">
+      <span><strong>Availability:</strong> {{ site.availability }}</span>
+    </p>
   </div>
 </header>
 
@@ -71,6 +74,21 @@
         <h2 class="side-title">Email</h2>
         <p><a [href]="'mailto:' + site.email">{{ site.email }}</a></p>
         <p class="muted">Every enquiry gets a personal reply, usually with a quote or a few follow-up questions.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="side-title">Hours</h2>
+        <p>Weekday evenings and weekends</p>
+        <p class="muted">I'm not available during standard business hours, so replies may arrive in the evening.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="side-title">Joining the Layer Zero beta?</h2>
+        <ul class="checklist">
+          <li>How many printers you run, and which makes and models</li>
+          <li>Whether they're FDM, resin or a mix</li>
+          <li>Where they're located, if you have more than one site</li>
+        </ul>
       </div>
 
       <div class="card">

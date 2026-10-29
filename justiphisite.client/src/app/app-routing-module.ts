@@ -6,7 +6,7 @@ import { Home } from './pages/home/home';
 import { Services } from './pages/services/services';
 
 const routes: Routes = [
-  { path: '', component: Home, title: 'JustiPhi Technologies | 3D Printing, IT Support & Software' },
+  { path: '', component: Home, title: 'JustiPhi Technologies | Layer Zero & 3D Printing' },
   { path: 'services', component: Services, title: 'Services | JustiPhi Technologies' },
   { path: 'about', component: About, title: 'About | JustiPhi Technologies' },
   { path: 'contact', component: Contact, title: 'Contact | JustiPhi Technologies' },
