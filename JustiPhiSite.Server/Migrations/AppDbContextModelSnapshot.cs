@@ -166,7 +166,7 @@ namespace JustiPhiSite.Server.Migrations
                         new
                         {
                             ServiceID = 13,
-                            Description = "<p>Now in <strong>Open Beta</strong>. Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenance and be notified when it is due</li></ul>",
+                            Description = "<p>Now in <strong>Closed Beta</strong>. Level up printer maintenance with scheduled maintenance scheduling and part inventory tracking! Request to join the closed beta by sending details on your printer setup.</p><ul><li>List and organise printers by type and location</li><li>Track printer repairs and maintenance</li><li>Track spare part inventory</li><li>Track maintenance and be notified when it is due</li></ul>",
                             IsActive = true,
                             Name = "Layer Zero",
                             Price = 0m,
